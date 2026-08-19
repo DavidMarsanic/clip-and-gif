@@ -1,0 +1,4 @@
+github.com/DavidMarsanic/gif-maker v0.0.0-20260819161148-b887354a55d1 h1:gvUtipPKw1Z+G/7t1exjgdnT0cs4A+o9K9uWwuWTyjg=
+github.com/DavidMarsanic/gif-maker v0.0.0-20260819161148-b887354a55d1/go.mod h1:4i9YZc/X6GfI3O4c/hsvAxNHAWUFpiKHM1VwDb5gBf4=
+github.com/DavidMarsanic/video-clipper v0.0.0-20260819161256-205adae23238 h1:KjoDAs0Oiu/BtnqjsUv531cdbocwqGQEvl3vJ/Dy5i0=
+github.com/DavidMarsanic/video-clipper v0.0.0-20260819161256-205adae23238/go.mod h1:U0NZZrLakBxv8llOhlfcRnT+golnUmOGqL1VkwqbMVc=
