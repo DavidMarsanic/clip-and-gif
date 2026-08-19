@@ -181,14 +181,12 @@
     el('modeFull').addEventListener('click', function () { setMode('full'); });
     el('modeClip').addEventListener('click', function () { setMode('clip'); });
 
-    el('format').addEventListener('change', function () {
-      el('widthField').classList.toggle('hidden', el('format').value !== 'gif');
-    });
-
     el('startField').addEventListener('change', function () { onFieldChange('start'); });
     el('endField').addEventListener('change', function () { onFieldChange('end'); });
 
-    el('save').addEventListener('click', onSave);
+    el('saveVideo').addEventListener('click', function () { onSave('mp4'); });
+    el('extractAudio').addEventListener('click', function () { onSave('audio'); });
+    el('convertGif').addEventListener('click', function () { onSave('gif'); });
     el('cancelJob').addEventListener('click', onCancelJob);
     el('openFile').addEventListener('click', function () { if (state.lastPath) postJSON('/api/open', { path: state.lastPath }); });
     el('showFolder').addEventListener('click', function () { if (state.lastPath) postJSON('/api/reveal', { path: state.lastPath }); });
@@ -414,16 +412,16 @@
 
   // ---- save / jobs -------------------------------------------------
 
-  function onSave() {
+  function onSave(format) {
     hideError();
     hideDone();
     var body = {
       url: state.url,
       mode: state.mode,
-      format: el('format').value,
+      format: format,
       quality: el('quality').value,
     };
-    if (body.format === 'gif') {
+    if (format === 'gif') {
       body.width = parseInt(el('width').value, 10) || 0;
     }
     if (state.mode === 'clip') {
@@ -537,7 +535,11 @@
   // ---- small UI state helpers ----------------------------------------
 
   function setLoading(v) { el('loading').classList.toggle('hidden', !v); el('load').disabled = v; }
-  function setSaving(v) { el('save').disabled = v; }
+  function setSaving(v) {
+    el('saveVideo').disabled = v;
+    el('extractAudio').disabled = v;
+    el('convertGif').disabled = v;
+  }
   function showError(msg) { el('error').textContent = msg; el('error').classList.remove('hidden'); }
   function hideError() { el('error').classList.add('hidden'); }
   function showProgress() { el('progress').classList.remove('hidden'); el('progressFill').style.width = '0%'; }

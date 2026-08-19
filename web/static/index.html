@@ -59,20 +59,12 @@
     </div>
 
     <div class="options-row">
-      <label class="field">Format
-        <select id="format">
-          <option value="auto">Auto</option>
-          <option value="mp4">MP4</option>
-          <option value="audio">Audio</option>
-          <option value="gif">GIF</option>
-        </select>
-      </label>
       <label class="field">Quality
         <select id="quality">
           <option value="best">Best</option>
         </select>
       </label>
-      <label id="widthField" class="field hidden">GIF width
+      <label class="field">GIF width
         <select id="width">
           <option value="0">Original</option>
           <option value="480" selected>480px</option>
@@ -82,7 +74,11 @@
       </label>
     </div>
 
-    <button id="save" class="btn save-btn" type="button">Save</button>
+    <div class="action-row">
+      <button id="saveVideo" class="btn primary" type="button">Save video</button>
+      <button id="extractAudio" class="btn" type="button">Extract audio</button>
+      <button id="convertGif" class="btn" type="button">Convert to GIF</button>
+    </div>
 
     <div id="progress" class="progress hidden">
       <div class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>

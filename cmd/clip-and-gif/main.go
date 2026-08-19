@@ -62,6 +62,9 @@ func run(args []string) int {
 
 	videoEng := videoengine.New(outputDir)
 	gifEng := gifengine.New()
+	for _, note := range append(videoEng.VersionNotes, gifEng.VersionNotes...) {
+		fmt.Fprintln(os.Stderr, "note:", note)
+	}
 
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()

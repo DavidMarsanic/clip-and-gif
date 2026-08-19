@@ -2,9 +2,25 @@
   "version": 1,
   "dependencies": [
     {
+      "id": "video-clipper-engine",
+      "name": "video-clipper (engine package)",
+      "version": "v0.0.0-20260819215454-32d5a7aa9988",
+      "homepage": "https://github.com/DavidMarsanic/video-clipper",
+      "note": "Compiled directly into this binary via go.mod, not copied — provides URL fetch/clip/audio-extract. This app is a real composition of two other Securexe applets' public engines, not a standalone reimplementation. Version is the go.mod pseudo-version — bump it deliberately (go get -u), don't let it drift silently."
+    },
+    {
+      "id": "gif-maker-engine",
+      "name": "gif-maker (engine package)",
+      "version": "v0.0.0-20260819215508-6093ef7b3b6b",
+      "homepage": "https://github.com/DavidMarsanic/gif-maker",
+      "note": "Compiled directly into this binary via go.mod, not copied — provides the ffmpeg | gifski GIF conversion used once video-clipper's engine has fetched the source. Version is the go.mod pseudo-version — bump it deliberately (go get -u), don't let it drift silently."
+    },
+    {
       "id": "yt-dlp",
       "name": "yt-dlp",
+      "version": "2026.07.04",
       "homepage": "https://github.com/yt-dlp/yt-dlp",
+      "note": "Not bundled, expected on PATH — resolved via video-clipper's engine, same version this app was last tested against.",
       "install": {
         "macos": "brew install yt-dlp"
       }
@@ -12,7 +28,9 @@
     {
       "id": "ffmpeg",
       "name": "FFmpeg",
+      "version": "9.0.1",
       "homepage": "https://github.com/FFmpeg/FFmpeg",
+      "note": "Not bundled, expected on PATH — resolved via video-clipper's and gif-maker's engines, same version this app was last tested against.",
       "install": {
         "macos": "brew install ffmpeg"
       }
@@ -20,7 +38,9 @@
     {
       "id": "gifski",
       "name": "gifski",
+      "version": "1.34.0",
       "homepage": "https://github.com/ImageOptim/gifski",
+      "note": "Not bundled, expected on PATH — resolved via gif-maker's engine, same version this app was last tested against.",
       "install": {
         "macos": "brew install gifski"
       }
